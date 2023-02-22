@@ -1,7 +1,7 @@
 ---
 - name: Become section
   block:
-- name: Add GitLab Runner repository
+    - name: Add GitLab Runner repository
       apt_repository:
         repo: '{{ gitlab_runner_repo }}'
         validate_certs: true
