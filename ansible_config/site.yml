@@ -49,8 +49,8 @@
       become_user: postgres
  - name: Install Java 17
    apt:
-    name: openjdk-17-jdk
-    state: present       
+     name: openjdk-17-jdk
+     state: present       
 - name: Install sonarqube
   hosts: localhost
   roles:
