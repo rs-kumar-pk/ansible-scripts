@@ -47,7 +47,15 @@
         privs: all
       become: true
       become_user: postgres
-
+      
+- name: Install Java 11
+  hosts: localhost
+  roles:
+    - role: ansible-role-java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-11-jdk
+        
 - name: Install sonarqube
   hosts: localhost
   roles:
