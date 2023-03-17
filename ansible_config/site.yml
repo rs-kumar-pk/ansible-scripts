@@ -48,7 +48,7 @@
       become: true
       become_user: postgres
  
- - name: Install Java 17
+- name: Install Java 17
    apt:
      name: openjdk-17-jdk
      state: present       
