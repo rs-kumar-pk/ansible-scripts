@@ -3,8 +3,8 @@
 
 - hosts: localhost
   tasks:
-    - name: installing repo for Java 8 in Ubuntu
-      apt_repository: repo='ppa:openjdk-r/ppa'
+    # - name: installing repo for Java 8 in Ubuntu
+    #   apt_repository: repo='ppa:openjdk-r/ppa'
       
     - name: "Install packages"
       apt: "name={{ item }} state=present"
@@ -47,14 +47,21 @@
         privs: all
       become: true
       become_user: postgres
- 
+
 - name: Install Java 17
   hosts: localhost
-  apt:
-    name: openjdk-17-jdk
-    state: present       
+  roles:
+    - role: ansible-role-java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-17-jdk
 
 - name: Install sonarqube
   hosts: localhost
   roles:
     - ansible-role-sonarqube
+
+- name: Install gitlab-runner
+  hosts: localhost
+  roles:
+    - ansible-role-gitlab-runner
