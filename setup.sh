@@ -4,7 +4,7 @@
 		sudo apt-get install zip unzip
 		sudo apt install net-tools
 		sudo git clone https://github.com/rs-kumar-pk/ansible-scripts.git
-		sudo ansible-playbook ansible-scripts/ansible_config/site-docker-gitlab-tf-azcli.yml
+		sudo ansible-playbook ansible-scripts/ansible_config/site-docker.yml
 		sudo timedatectl set-timezone Canada/Eastern
 		sudo apt update -y
 		sudo apt upgrade -y
